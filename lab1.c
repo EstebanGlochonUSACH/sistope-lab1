@@ -48,24 +48,22 @@ int main(int argc, char *argv[])
             line[read - 1] = '\0';
         }
 	    match_status = regexec(&re, line, (size_t)0, NULL, 0);
-        fprintf(fp_output, "%s", line);
+        dup_printf(params.flag_verbose, fp_output, "%s", line);
         if (match_status == 0) {
             counter_match += 1;
-            fprintf(fp_output, " si\n");
+            dup_printf(params.flag_verbose, fp_output, " si\n");
         }
         else{
             counter_no_match += 1;
-            fprintf(fp_output, " no\n");
+            dup_printf(params.flag_verbose, fp_output, " no\n");
         }
         counter_total += 1;
     }
 
-    fprintf(fp_output, "\n");
-    fprintf(fp_output, "Total de expresiones que Si son regulares:%d\n", counter_match);
-    fprintf(fp_output, "Total de expresiones que No son regulares:%d\n", counter_no_match);
-    if(params.flag_verbose){
-        fprintf(fp_output, "Total de lineas leídas:%d\n", counter_total);
-    }
+    dup_printf(params.flag_verbose, fp_output, "\n");
+    dup_printf(params.flag_verbose, fp_output, "Total de expresiones que Si son regulares:%d\n", counter_match);
+    dup_printf(params.flag_verbose, fp_output, "Total de expresiones que No son regulares:%d\n", counter_no_match);
+    dup_printf(params.flag_verbose, fp_output, "Total de lineas leídas:%d\n", counter_total);
 
 	regfree(&re);
     fclose(fp_input);
