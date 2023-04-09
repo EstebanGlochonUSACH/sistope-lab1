@@ -3,6 +3,8 @@ Laboratorio 1 de Sistemas Operativos
 
 ## Enunciado
 
+En este laboratorio crearemos un "reconocedor", que en base a una expresión regular y a un archivo de texto, diga si cada expresión es una expresión regular o no .
+
 La expresión regular a reconocer es:
 ```
 (A|C|G|T)∗GT+C(A|C|G|T)∗
