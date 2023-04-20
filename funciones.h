@@ -31,4 +31,9 @@ void parse_params(params_t *params, int argc, char *argv[]);
 //              la escritura de la misma informacion en el STDOUT del proceso. 
 void dup_printf(int flag_verbose, FILE *f, char const *fmt, ...);
 
+// Entradas: Recibe "string" (arreglo de carácteres).
+// Salidas: Retorna el mismo puntero del arreglo de caracteres.
+// Descripción: Remueve todos los carácteres "blancos" del inicio y final del string.
+char *strtrim(char *s);
+
 #endif

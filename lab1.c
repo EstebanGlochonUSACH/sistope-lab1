@@ -44,9 +44,7 @@ int main(int argc, char *argv[])
     }
 
     while ((read = getline(&line, &len, fp_input)) != -1) {
-        if(line[read - 1] == '\n' ) {
-            line[read - 1] = '\0';
-        }
+        strtrim(line);
 	    match_status = regexec(&re, line, (size_t)0, NULL, 0);
         dup_printf(params.flag_verbose, fp_output, "%s", line);
         if (match_status == 0) {
